@@ -1,0 +1,64 @@
+<style>
+    body { font-family: Arial; }
+
+    .box {
+        width: 350px;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        background: white;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #56b8c5;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #1d5c59;
+    }
+</style>
+
+<div class="box">
+    <h1>💳 Pago</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Nombre en la tarjeta</label>
+        <input type="text" required>
+
+        <label>Número de tarjeta</label>
+        <input type="text" placeholder="1234 5678 9012 3456" required>
+
+        <label>Fecha de expiración</label>
+        <input type="text" placeholder="MM/AA" required>
+
+        <label>CVV</label>
+        <input type="text" placeholder="123" required>
+
+        <button type="submit">✅ Pagar</button>
+    </form>
+
+    <br>
+    <a href="{% url 'cart_detail' %}">⬅ Volver</a>
+</div>
